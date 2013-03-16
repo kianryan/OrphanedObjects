@@ -1,5 +1,10 @@
-bin
-obj
-*.swp
+_ReSharper.*
+bin/
+obj/
+packages/*/
+*TeamCity*
 *.suo
+*.swp
 *.user
+sln.DottSettings
+sln.DottSettings.User
