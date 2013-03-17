@@ -31,7 +31,8 @@ namespace OrphanedObjects.Tests
             var parent = _context.Parents.First();
             var child = parent.Children.First();
 
-            var toRemove = parent.RemoveChild(child);
+            IEnumerable<Child> toRemove;
+            var success = parent.RemoveChild(child, out toRemove);
 
             foreach (var remove in toRemove)
                 _context.Children.Remove(remove);

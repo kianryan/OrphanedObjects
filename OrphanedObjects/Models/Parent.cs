@@ -14,10 +14,17 @@ namespace OrphanedObjects.Models
             set { _children = value; }
         } 
 
-        public IEnumerable<Child> RemoveChild(Child child)
+        public bool RemoveChild(Child child, out IEnumerable<Child> toRemove)
         {
+            var removeTracker = new List<Child>();
+
             Children.Remove(child);
-            return new Child[] { child };
+            removeTracker.Add(child);
+
+            // Side-effects occuring as of business logic.
+
+            toRemove = removeTracker;
+            return true;
         }
     }
 }
